@@ -17,44 +17,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.core.entity.Costumer;
+import com.api.core.entity.Unit;
 import com.api.core.entity.User;
 import com.api.core.model.MCostumer;
-import com.api.core.model.MUser;
-import com.api.core.service.CostumerService;
-import com.api.core.service.UserService;
+import com.api.core.model.MUnit;
+import com.api.core.service.UnitService;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/v1")
-public class CustomerController {
-	
+public class UnitController {
+
 	@Autowired
-	@Qualifier("customerService")
-	CostumerService customerService;
+	@Qualifier("unitService")
+	UnitService unitService;
 	
-	@PutMapping("/customer")
-	public boolean createCustomer(@RequestBody @Valid Costumer costumer)
+	@PutMapping("/unit")
+	public boolean createUnit(@RequestBody @Valid Unit unit)
 	{
-		return customerService.create(costumer);
+		return unitService.create(unit);
 	}
 	
-	@GetMapping("/customer")
-	public List<MCostumer> getCustom()
+	@GetMapping("/unit")
+	public List<MUnit> getUnits()
 	{
-		return customerService.obtener();
+		return unitService.obtener();
 	}
 	
-	@GetMapping("/customer/{customerId}")
-	public MCostumer getCustomerById(@PathVariable int customerId)
+	@GetMapping("/unit/{unitId}")
+	public MUnit getUnit(@PathVariable int unitId)
 	{
-		return customerService.ObtenerPorId(customerId);
+		return unitService.buscarPorId(unitId);
 	}
 	
-	@DeleteMapping("/customer/{customerId}")
+	@DeleteMapping("/unit/{unitId}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void deleteCustomer(@PathVariable int customerId) {	
-		customerService.borrar(customerId);
+	public void deleteUnit(@PathVariable int unitId) {
+		unitService.borrar(unitId);
 	}
+	
 	
 }
