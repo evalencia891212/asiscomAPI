@@ -10,8 +10,7 @@ import javax.persistence.Table;
 @Entity
 public class Costumer {
 	
-	
-	
+
 	public Costumer(long costumerId, String key, String firstName, String lastName, String surname,
 			String businessName) {
 		super();
@@ -97,6 +96,4 @@ public class Costumer {
 	}
 	
 	
-	
-
 }
