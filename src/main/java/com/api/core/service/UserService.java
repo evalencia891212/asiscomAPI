@@ -37,4 +37,7 @@ public class UserService {
 		return userConverter.ConvertirLista(userRepository.findByUserName(userName));
 	}
 	
+	public List<MUser> findAll(){
+		return userConverter.ConvertirLista(userRepository.findAll());
+	}
 }

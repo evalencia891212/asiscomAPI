@@ -20,7 +20,7 @@ import com.api.core.model.MUser;
 import com.api.core.service.UserService;
 
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4200","http://localhost:8383"})
 @RestController
 @RequestMapping("/v1")
 public class UserController {
@@ -39,6 +39,12 @@ public class UserController {
 	public List<MUser> getByName(@PathVariable String userName)
 	{
 		return userService.findByName(userName);
+	}
+	
+	@GetMapping("/user")
+	public List<MUser> getUsers()
+	{
+		return userService.findAll();				
 	}
 	
 	
